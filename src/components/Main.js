@@ -1,6 +1,7 @@
 import React from 'react';
 import Signup from './Signup';
 import Login from './Login';
+import Homepage from './Homepage';
 import { Route } from 'react-router-dom';
 
 class Main extends React.Component {
@@ -41,7 +42,7 @@ class Main extends React.Component {
     render() {
         return (
             <div>
-                <h1>hello, welcome to the COVID-19 inventory checklist</h1>
+                <Route exact path="/" render={(props) => <Homepage {...props} />} />
                 <Route exact path="/login" render={(props) => <Login {...props} />} />
                 <Route exact path="/signup" render={(props) => <Signup {...props} />} />
             </div>
