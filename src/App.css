@@ -2,9 +2,10 @@
   text-align: center;
 }
 
+/* navbar */
 .sidenav {
   height: 100%;
-  width: 160px;
+  width: 200px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -27,12 +28,27 @@
 }
 
 .main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+/* items styling */
+.items-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 50px;
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+}
+
+.item {
+  border: 1px solid black;
+  border-radius: 20px;
 }
