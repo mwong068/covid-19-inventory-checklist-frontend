@@ -9,7 +9,6 @@ class Signup extends React.Component{
     }
 
     handleChange = (event) => {
-        console.log(event.target)
         this.setState({
             [event.target.className]: event.target.value
         })
@@ -21,6 +20,38 @@ class Signup extends React.Component{
         })
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('submitting sign up!')
+        console.log(this.state)
+        fetch('http://localhost:3000/helpful_users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+        },
+        body: JSON.stringify({
+            helpful_user: {
+            username: this.state.username,
+            name: this.state.name,
+            password: this.state.password,
+            email: this.state.email,
+            location: this.state.location,
+            family_size: this.state.familySize,
+            can_deliver: this.state.canDeliver,
+            has_children: this.state.haveChildren
+            }
+        })
+        })
+        .then(r => r.json())
+        .then(data => {
+            localStorage.setItem('token', data.jwt);
+            console.log(data)
+        }
+        )
+    }
+
+
     render() {
         return (
             <div>
@@ -29,6 +60,11 @@ class Signup extends React.Component{
                     <label>Name:
                         <br></br>
                         <input type="text" className="name" onChange={this.handleChange}></input>
+                    </label>
+                    <br></br><br></br>
+                    <label>Email:
+                        <br></br>
+                        <input type="text" className="email" onChange={this.handleChange}></input>
                     </label>
                     <br></br><br></br>
                     <label>Username:
@@ -41,7 +77,7 @@ class Signup extends React.Component{
                         <input type="password" className="password" onChange={this.handleChange}></input>
                     </label>
                     <br></br><br></br>
-                    <label>Location
+                    <label>Location:
                         <br></br>
                         <input type="text" className="location" onChange={this.handleChange}></input>
                     </label>
@@ -59,7 +95,16 @@ class Signup extends React.Component{
                     </label>
                     <br></br><br></br>
                     <label>
-                        Can deliver:
+                        Have children: 
+                        <input
+                            className="haveChildren"
+                            type="checkbox"
+                            checked={this.state.haveChildren}
+                            onChange={this.handleCheckbox} />
+                    </label>
+                    <br></br><br></br>
+                    <label>
+                        Can deliver: 
                         <input
                             className="canDeliver"
                             type="checkbox"
@@ -67,7 +112,7 @@ class Signup extends React.Component{
                             onChange={this.handleCheckbox} />
                     </label>
                     <br></br><br></br>
-                    <input type="submit" className="Submit" />
+                    <input type="submit" className="Submit" onClick={(event) => this.handleSubmit(event)} />
                 </form>
             </div>
         )

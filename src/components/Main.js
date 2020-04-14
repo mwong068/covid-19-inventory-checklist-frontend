@@ -6,6 +6,13 @@ import { Route } from 'react-router-dom';
 
 class Main extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            current_user: null
+        }
+    }
+
     componentDidMount() {
         // fetch('http://localhost:3000/helpful_users', {
         // method: 'POST',
@@ -35,14 +42,20 @@ class Main extends React.Component {
         },
         })
         .then(r => r.json())
-        .then(console.log)
+        .then(data => (
+            console.log(data),
+            this.setState({
+                current_user: data.user.name
+            })
+        )
+        )
 
     }
 
     render() {
         return (
             <div>
-                <Route exact path="/" render={(props) => <Homepage {...props} />} />
+                <Route exact path="/" render={(props) => <Homepage {...props} currentUser={this.state.current_user} />} />
                 <Route exact path="/login" render={(props) => <Login {...props} />} />
                 <Route exact path="/signup" render={(props) => <Signup {...props} />} />
             </div>
