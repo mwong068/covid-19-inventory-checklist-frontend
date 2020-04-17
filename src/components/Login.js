@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import LoginUser from '../actions/Login';
+import LoginUser from '../actions/LoginUser';
 
 class Login extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {
+        this.state={
             username: null,
             password: null
         }
@@ -18,16 +18,16 @@ class Login extends React.Component{
         })
     }
 
-    handleSubmit = (event, userInfo) => {
+    handleSubmit = (event, userInfo, history) => {
         event.preventDefault();
-        this.props.loginUser(event, userInfo);
+        this.props.loginUser(event, userInfo, history);
     }
 
     render() {
         return (
             <div>
                 <h1>Login</h1>
-                <form onSubmit={(event) => this.handleSubmit(event, this.state)}>
+                <form onSubmit={(event) => this.handleSubmit(event, this.state, this.props.history)}>
                     <label>Username:
                         <br></br>
                     <input type="text" className="username" onChange={(event) => this.handleOnChange(event)} />
@@ -47,7 +47,7 @@ class Login extends React.Component{
 
 const mapDispatchToProps = dispatch => {
     return {
-        loginUser: (event, userInfo) => { dispatch(LoginUser(event, userInfo)) }
+        loginUser: (event, userInfo, history) => { dispatch(LoginUser(event, userInfo, history)) }
     }
 }
 
