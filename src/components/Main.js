@@ -3,7 +3,9 @@ import Signup from './Signup';
 import Login from './Login';
 import Homepage from './Homepage';
 import Checklist from './Checklist';
+import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
+import checkUser from '../actions/checkUser';
 
 class Main extends React.Component {
 
@@ -16,6 +18,7 @@ class Main extends React.Component {
     }
 
     componentDidMount() {
+        this.props.checkUser();
         // fetch('http://localhost:3000/helpful_users', {
         // method: 'POST',
         // headers: {
@@ -73,4 +76,16 @@ class Main extends React.Component {
     }
 }
 
-export default Main
+const mapStateToProps = state => {
+    return {
+        currentUser: state.currentUser
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        checkUser: () => { dispatch(checkUser()) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

@@ -8,6 +8,8 @@ const rootReducer = (state = initialState, action) => {
             return {...state, loading: true}
         case 'LOGGED_IN':
             return {...state, currentUser: action.currentUser, loading: false}
+        case 'VERIFIED_USER':
+            return {...state, currentUser: action.currentUser, loading: false}
         default:
             return state;
     }
