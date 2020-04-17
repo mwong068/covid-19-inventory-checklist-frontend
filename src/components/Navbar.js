@@ -3,6 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 class Navbar extends React.Component {
 
+    logoutUser = () => {
+        localStorage.removeItem('token');
+    }
+
     render() {
         return (
             <div>
@@ -11,6 +15,7 @@ class Navbar extends React.Component {
                     <NavLink to="/login">Login</NavLink>
                     <NavLink to="/signup">Sign Up</NavLink>
                     <NavLink to="/checklist">Checklist</NavLink>
+                    <NavLink to="/logout" onClick={this.logoutUser}>Logout</NavLink>
                 </div>  
             </div>
         )

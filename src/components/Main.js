@@ -34,23 +34,25 @@ class Main extends React.Component {
         // })
         // .then(r => r.json())
         // .then(console.log)
-        const token = localStorage.token;
-        fetch('http://localhost:3000/profile', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        })
-        .then(r => r.json())
-        .then(data => (
-            console.log(data),
-            this.setState({
-                current_user: data.user.name
-            })
-        )
-        )
+
+        // login
+        // const token = localStorage.token;
+        // fetch('http://localhost:3000/profile', {
+        // method: 'GET',
+        // headers: {
+        //     'Content-Type': 'application/json',
+        //     Accept: 'application/json',
+        //     'Authorization': `Bearer ${token}`
+        // },
+        // })
+        // .then(r => r.json())
+        // .then(data => (
+        //     console.log(data),
+        //     this.setState({
+        //         current_user: data.user.name
+        //     })
+        // )
+        // )
 
     }
 

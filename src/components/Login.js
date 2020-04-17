@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import LoginUser from '../actions/Login';
 
 class Login extends React.Component{
 
     constructor(props){
         super(props);
-        this.state={
+        this.state = {
             username: null,
             password: null
         }
@@ -16,34 +18,16 @@ class Login extends React.Component{
         })
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = (event, userInfo) => {
         event.preventDefault();
-        console.log('submitting login!')
-        fetch('http://localhost:3000/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-        },
-        body: JSON.stringify({
-            helpful_user: {
-            username: this.state.username,
-            password: this.state.password
-            }
-        })
-        })
-        .then(r => r.json())
-        .then(data => {
-            localStorage.setItem('token', data.jwt);
-        }
-        )
+        this.props.loginUser(event, userInfo);
     }
 
     render() {
         return (
             <div>
                 <h1>Login</h1>
-                <form>
+                <form onSubmit={(event) => this.handleSubmit(event, this.state)}>
                     <label>Username:
                         <br></br>
                     <input type="text" className="username" onChange={(event) => this.handleOnChange(event)} />
@@ -54,11 +38,17 @@ class Login extends React.Component{
                     <input type="password" className="password" onChange={(event) => this.handleOnChange(event)} />
                     </label>
                     <br></br><br></br>
-                    <input type="submit" value="Submit" onClick={(event) => this.handleSubmit(event)}/>
+                    <input type="submit" value="Submit" />
                 </form>
             </div>
         )
     }
 }
 
-export default Login
+const mapDispatchToProps = dispatch => {
+    return {
+        loginUser: (event, userInfo) => { dispatch(LoginUser(event, userInfo)) }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Login);
