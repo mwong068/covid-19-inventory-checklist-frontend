@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import createUser from '../actions/createUser';
 
 class Signup extends React.Component{
 
@@ -22,33 +24,8 @@ class Signup extends React.Component{
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log('submitting sign up!')
-        console.log(this.state)
-        fetch('http://localhost:3000/helpful_users', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-        },
-        body: JSON.stringify({
-            helpful_user: {
-            username: this.state.username,
-            name: this.state.name,
-            password: this.state.password,
-            email: this.state.email,
-            location: this.state.location,
-            family_size: this.state.familySize,
-            can_deliver: this.state.canDeliver,
-            has_children: this.state.haveChildren
-            }
-        })
-        })
-        .then(r => r.json())
-        .then(data => {
-            localStorage.setItem('token', data.jwt);
-            console.log(data)
-        }
-        )
+        this.props.signUp(event, this.state, this.props.history);
+        
     }
 
 
@@ -56,7 +33,7 @@ class Signup extends React.Component{
         return (
             <div>
                 <h1>Sign Up</h1>
-                <form>
+                <form onSubmit={(event) => this.handleSubmit(event)} >
                     <label>Name:
                         <br></br>
                         <input type="text" className="name" onChange={this.handleChange}></input>
@@ -112,11 +89,17 @@ class Signup extends React.Component{
                             onChange={this.handleCheckbox} />
                     </label>
                     <br></br><br></br>
-                    <input type="submit" className="Submit" onClick={(event) => this.handleSubmit(event)} />
+                    <input type="submit" className="Submit" />
                 </form>
             </div>
         )
     }
 }
 
-export default Signup
+const mapDispatchToProps = dispatch => {
+    return{
+        signUp: (event, userInfo, history) => { dispatch(createUser(event, userInfo, history)) }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Signup);

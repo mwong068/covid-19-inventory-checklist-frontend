@@ -1,18 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ItemList from './Items/ItemList';
+import CategoryList from './Categories/CategoryList';
+import getCategories from '../actions/Category/getCategories';
 
 class Checklist extends React.Component {
+
+    componentDidMount() {
+        this.props.getCategories();
+    }
 
     render() {
         return(
             <div>
                 {this.props.loaded ?
-                <div className="loader"></div>
+                <div className="homepage">
+                <div className="header"></div>
+                <div className="welcome">
+                    <div className="loader"></div>
+                    <br></br>
+                    <h2>Loading your Checklist</h2>
+                </div>
+                </div>
                 :
                 <>
-                <h1>Hi {this.props.user}, welcome to the COVID-19 inventory checklist!</h1>
-                <ItemList />
+                <h1>Hi {this.props.user}, welcome to your inventory checklist!</h1>
+                <CategoryList />
                 </>
                 }
             </div>
@@ -23,8 +35,15 @@ class Checklist extends React.Component {
 const mapStateToProps = state => {
     return {
         user: state.currentUser,
-        loaded: state.loading
+        loaded: state.loading,
+        categories: state.categories
     }
 }
 
-export default connect(mapStateToProps, null)(Checklist);
+const mapDispatchToProps = dispatch => {
+    return {
+        getCategories: () => { dispatch(getCategories()) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checklist);

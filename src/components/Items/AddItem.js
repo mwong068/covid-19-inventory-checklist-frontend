@@ -4,8 +4,8 @@ class AddItem extends React.Component {
 
     render() {
         return(
-            <div className="item">
-                <h3>Add Item</h3>
+            <div className="add-item">
+                <h3>Add New Item</h3>
                 <form>
                     <label>Item name: 
                         <input type="text"></input>

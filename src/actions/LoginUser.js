@@ -24,7 +24,7 @@ const LoginUser = (event, userInfo, history) => {
                 else {
                 localStorage.setItem('token', data.jwt);
                 history.push('/checklist')
-                dispatch({type: 'LOGGED_IN', currentUser: data.user.username})
+                dispatch({type: 'LOGGED_IN', currentUser: data.user.username, userId: data.user.id})
                 }
             }
             )

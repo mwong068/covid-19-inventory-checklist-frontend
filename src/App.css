@@ -5,12 +5,13 @@
 /* navbar */
 .sidenav {
   height: 100%;
-  width: 200px;
+  width: 100px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #13a7e0;
+;
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -27,15 +28,27 @@
   color: #f1f1f1;
 }
 
-.main {
-  margin-left: 200px; /* Same as the width of the sidenav */
-  padding: 0px 10px;
-}
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+
+/* icons in navbar */
+.navbar-icons {
+  padding: 8px;
+  color: white;
+}
+
+
+/* main page margins */
+.main {
+  margin-left: 100px;
+  padding: 0px 10px;
+  width: 90%;
+}
+
 
 /* items styling */
 .items-container {
@@ -47,9 +60,18 @@
   padding: 10px;
 }
 
-.item {
-  border: 1px solid black;
+.add-item {
+  background-color: #c76c92;
   border-radius: 20px;
+  width: 35vh;
+  height: 27vh;
+}
+
+.item {
+background-color: #96a0d0;
+border-radius: 20px;
+width: 35vh;
+height: 27vh;
 }
 
 /* spinner */
@@ -60,9 +82,29 @@
   width: 120px;
   height: 120px;
   animation: spin 2s linear infinite;
+  margin: auto;
 }
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* homepage */
+.homepage {
+  display: grid;
+  grid-template-areas: 
+    'header header header header header header' 
+    'left left middle middle right right' 
+    'footer footer footer footer footer footer';
+}
+
+.header {
+  grid-area: header;
+  height: 150px;
+}
+
+.welcome {
+  grid-area: middle;
+  line-height: 70px;
 }

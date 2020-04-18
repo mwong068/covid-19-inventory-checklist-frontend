@@ -1,8 +1,8 @@
-const checkUser = () => {
+const getCategories = () => {
     return (dispatch) => {
         dispatch({type: 'LOADING'})
         const token = localStorage.token;
-        fetch('http://localhost:3000/profile', {
+        fetch('http://localhost:3000/categories', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -13,13 +13,14 @@ const checkUser = () => {
         .then(r => r.json())
         .then(data => {
             if (data.message){
-              console.log(data.message)  
+                console.log(data.message)  
             }
             else {
-            dispatch({type: 'VERIFIED_USER', currentUser: data.user.username, userId: data.user.id})
+                console.log(data)
+            // dispatch({type: 'VERIFIED_USER', currentUser: data.user.username, userId: data.user.id})
             }
         }
     )}
 }
 
-export default checkUser;
+export default getCategories;
