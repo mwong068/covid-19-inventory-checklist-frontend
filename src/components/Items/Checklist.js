@@ -2,11 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ItemList from './ItemList';
 import getCategories from '../../actions/Category/getCategories';
+import getItems from '../../actions/Item/getItems';
+// import { faUserInjured } from '@fortawesome/free-solid-svg-icons';
 
 class Categories extends React.Component {
 
     componentDidMount() {
-        // this.props.getCategories();
+        this.props.getCategories();
     }
 
     render() {
@@ -23,6 +25,7 @@ class Categories extends React.Component {
             </div>
             :
             <>
+            {/* {this.props.getItems(this.props.id)} */}
             <h1>Hi {this.props.user}, welcome to your inventory checklist!</h1>
             <ItemList />
             </>
@@ -35,6 +38,7 @@ class Categories extends React.Component {
 const mapStateToProps = state => {
     return {
         user: state.currentUser,
+        id: state.userId,
         loaded: state.loading,
         categories: state.categories
     }
@@ -42,7 +46,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getCategories: () => { dispatch(getCategories()) }
+        getCategories: () => { dispatch(getCategories()) },
+        getItems: (id) => { dispatch(getItems(id)) }
     }
 }
 

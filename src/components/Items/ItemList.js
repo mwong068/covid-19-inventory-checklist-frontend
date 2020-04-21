@@ -4,6 +4,9 @@ import AddItem from './AddItem';
 
 class ItemList extends React.Component {
     
+    componentDidMount() {
+    }
+
     render() {
     return (
         <div className="items-container">
@@ -16,5 +19,6 @@ class ItemList extends React.Component {
         )
     }
 }
+
 
 export default ItemList;

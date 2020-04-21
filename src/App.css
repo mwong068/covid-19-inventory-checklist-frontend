@@ -63,15 +63,15 @@
 .add-item {
   background-color: #c76c92;
   border-radius: 20px;
-  width: 35vh;
-  height: 27vh;
+  width: 270px;
+  height: 220px;
 }
 
 .item {
 background-color: #96a0d0;
 border-radius: 20px;
-width: 35vh;
-height: 27vh;
+width: 270px;
+height: 220px;
 }
 
 /* spinner */

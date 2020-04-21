@@ -36,7 +36,8 @@ class Main extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        currentUser: state.currentUser
+        currentUser: state.currentUser,
+        userId: state.userId
     }
 }
 
