@@ -1,6 +1,7 @@
 import React from 'react';
 import Item from './Item';
 import AddItem from './AddItem';
+import { connect } from 'react-redux';
 
 class ItemList extends React.Component {
     
@@ -11,14 +12,16 @@ class ItemList extends React.Component {
     return (
         <div className="items-container">
             <AddItem />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
+            {this.props.items.map((item) => (<Item {...item} />))}
         </div>
         )
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        items: state.items
+    }
+}
 
-export default ItemList;
+export default connect(mapStateToProps, null)(ItemList);

@@ -17,9 +17,9 @@ const getItems = (id) => {
                 console.log(data.message)  
             }
             else {
-                console.log(data)
                 let userItems = data.find((item) => (item.helpful_user_id === id))
-                dispatch({type: 'LOADED_ITEMS', items: userItems})
+                console.log(userItems)
+                dispatch({type: 'LOADED_ITEMS', items: [userItems]})
             }
         }
     )}

@@ -19,7 +19,7 @@ class Main extends React.Component {
         return (
             <div className="main">
                 <Route exact path="/" render={(props) => <Homepage {...props} />} />
-                <Route exact path="/checklist" render={(props) => <Checklist {...props} />} />
+                <Route exact path="/checklist" render={(props) => <Checklist {...props} id={this.props.userId} />} />
                 <Route exact path="/categories" render={(props) => <Categories{...props} />} />
                 <Route exact path="/profile" render={(props) => <Profile{...props} name={this.props.currentUser} />} />
                 {this.props.current_user ? null :

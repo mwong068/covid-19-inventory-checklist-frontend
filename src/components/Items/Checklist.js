@@ -5,10 +5,11 @@ import getCategories from '../../actions/Category/getCategories';
 import getItems from '../../actions/Item/getItems';
 // import { faUserInjured } from '@fortawesome/free-solid-svg-icons';
 
-class Categories extends React.Component {
+class Checklist extends React.Component {
 
     componentDidMount() {
         this.props.getCategories();
+        this.props.getItems(this.props.id)
     }
 
     render() {
@@ -25,7 +26,6 @@ class Categories extends React.Component {
             </div>
             :
             <>
-            {/* {this.props.getItems(this.props.id)} */}
             <h1>Hi {this.props.user}, welcome to your inventory checklist!</h1>
             <ItemList />
             </>
@@ -51,4 +51,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Categories);
+export default connect(mapStateToProps, mapDispatchToProps)(Checklist);

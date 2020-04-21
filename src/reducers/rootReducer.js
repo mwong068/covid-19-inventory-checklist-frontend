@@ -23,7 +23,7 @@ const rootReducer = (state = initialState, action) => {
             return {...state, categories: action.categories, loading: false}
         case 'ITEM_ADDED':
             return {...state, items: action.items, loading: false}
-        case 'LOADED_':
+        case 'LOADED_ITEMS':
             return {...state, items: action.items, loading: false}
         default:
             return state;
