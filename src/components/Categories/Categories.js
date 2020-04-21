@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import CategoryList from './Categories/CategoryList';
-import getCategories from '../actions/Category/getCategories';
+import CategoryList from './CategoryList';
+import getCategories from '../../actions/Category/getCategories';
 
-class Checklist extends React.Component {
+class Categories extends React.Component {
 
     componentDidMount() {
         this.props.getCategories();
@@ -18,12 +18,12 @@ class Checklist extends React.Component {
                 <div className="welcome">
                     <div className="loader"></div>
                     <br></br>
-                    <h2>Loading your Checklist</h2>
+                    <h2>Loading Categories</h2>
                 </div>
                 </div>
                 :
                 <>
-                <h1>Hi {this.props.user}, welcome to your inventory checklist!</h1>
+                <h1>Browse Items by Category</h1>
                 <CategoryList />
                 </>
                 }
@@ -46,4 +46,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Checklist);
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);

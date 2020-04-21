@@ -1,12 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import createUser from '../actions/createUser';
 
-class Signup extends React.Component{
+class Profile extends React.Component {
 
-    constructor(props){
-        super(props);
+    constructor() {
+        super();
         this.state = {
+
         }
     }
 
@@ -34,11 +33,11 @@ class Signup extends React.Component{
         
     }
 
-
-    render() {
-        return (
+    render(){
+        return(
             <div>
-                <h1>Sign Up</h1>
+                <h1>Hi there, {this.props.name}!</h1>
+                <h4>Here you can edit you personal preferences:</h4>
                 <form onSubmit={(event) => this.handleSubmit(event)} >
                     <label>Name:
                         <br></br>
@@ -95,17 +94,11 @@ class Signup extends React.Component{
                             onChange={this.handleCheckboxTwo} />
                     </label>
                     <br></br><br></br>
-                    <input type="submit" className="Submit" />
+                    <input type="submit" className="Save Changes" />
                 </form>
             </div>
         )
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return{
-        signUp: (event, userInfo, history) => { dispatch(createUser(event, userInfo, history)) }
-    }
-}
-
-export default connect(null, mapDispatchToProps)(Signup);
+export default Profile;

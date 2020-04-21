@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import logoutUser from '../actions/logoutUser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faListAlt, faSignOutAlt, faUserCircle, faUserPlus, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faListAlt, faSignOutAlt, faUserCircle, faUserPlus, faSignInAlt, faTasks } from '@fortawesome/free-solid-svg-icons';
 
 
 class Navbar extends React.Component {
@@ -19,7 +19,8 @@ class Navbar extends React.Component {
                     {this.props.currentUser !== null ?
                     <div className="logged-in">
                     <NavLink to="/"><FontAwesomeIcon icon={faHome} className="navbar-icons"/></NavLink>
-                    <NavLink to="/checklist"><FontAwesomeIcon icon={faListAlt} className="navbar-icons"/></NavLink>
+                    <NavLink to="/checklist"><FontAwesomeIcon icon={faTasks} className="navbar-icons"/></NavLink>
+                    <NavLink to="/categories"><FontAwesomeIcon icon={faListAlt} className="navbar-icons"/></NavLink>
                     <NavLink to="/profile"><FontAwesomeIcon icon={faUserCircle} className="navbar-icons"/></NavLink>
                     <NavLink to="/" onClick={() => this.logoutUser(this.props.history)}><FontAwesomeIcon icon={faSignOutAlt} className="navbar-icons" /></NavLink>
                     </div>

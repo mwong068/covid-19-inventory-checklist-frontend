@@ -18,6 +18,8 @@ const rootReducer = (state = initialState, action) => {
             return {...state, currentUser: {}, loading: false}
         case 'CATEGORY_CREATED':
             return {...state, categories: action.categories, loading: false}
+        case 'LOADED_CATEGORIES':
+            return {...state, categories: action.categories, loading: false}
         default:
             return state;
     }

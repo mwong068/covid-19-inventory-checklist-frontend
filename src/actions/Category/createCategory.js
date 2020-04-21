@@ -25,7 +25,7 @@ const createCategory = (event, categoryInfo, history) => {
             }
             else{
                 console.log(data)
-                history.push('/checklist')
+                // history.push('/checklist')
                 dispatch({type: 'CATEGORY_CREATED', categories: data})
             }
         })

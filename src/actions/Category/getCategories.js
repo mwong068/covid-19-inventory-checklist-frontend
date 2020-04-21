@@ -17,7 +17,7 @@ const getCategories = () => {
             }
             else {
                 console.log(data)
-            // dispatch({type: 'VERIFIED_USER', currentUser: data.user.username, userId: data.user.id})
+            dispatch({type: 'LOADED_CATEGORIES', categories: data})
             }
         }
     )}
