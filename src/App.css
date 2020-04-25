@@ -108,3 +108,33 @@ height: 220px;
   grid-area: middle;
   line-height: 70px;
 }
+
+/* profile page */
+.profile-page {
+  display: grid;
+  grid-template-areas: 'left right right';
+  padding: 50px;
+}
+
+.profile-left{
+  border: 1px solid #7F95D1;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-gap: 20px;
+  width: 80%;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #EFE9F4;
+}
+
+.profile-right{
+  border: 1px solid #7F95D1;
+  border-radius: 20px;
+  width: 120%;
+}
+
+.profile-header{
+  border: 2px solid #7F95D1;
+  background-color: white;
+  border-radius: 20px;
+}
