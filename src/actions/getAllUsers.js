@@ -1,9 +1,9 @@
-const getItems = (id) => {
+const getAllUsers = (id) => {
     console.log(id)
     return (dispatch) => {
         dispatch({type: 'LOADING'})
         const token = localStorage.token;
-        fetch('http://localhost:3000/helpful_items', {
+        fetch('http://localhost:3000/helpful_users', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -17,12 +17,10 @@ const getItems = (id) => {
                 console.log(data.message)  
             }
             else {
-                let userItems = data.find((item) => (item.helpful_user_id === id))
-                console.log(userItems)
-                dispatch({type: 'LOADED_USER_ITEMS', items: [userItems]})
+                dispatch({type: 'LOADED_ALL_USERS', users: data})
             }
         }
     )}
 }
 
-export default getItems;
+export default getAllUsers;

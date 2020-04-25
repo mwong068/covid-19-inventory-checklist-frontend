@@ -1,4 +1,4 @@
-const getItems = (id) => {
+const getItemsByCategory = (id) => {
     console.log(id)
     return (dispatch) => {
         dispatch({type: 'LOADING'})
@@ -17,12 +17,10 @@ const getItems = (id) => {
                 console.log(data.message)  
             }
             else {
-                let userItems = data.find((item) => (item.helpful_user_id === id))
-                console.log(userItems)
-                dispatch({type: 'LOADED_USER_ITEMS', items: [userItems]})
+                dispatch({type: 'LOADED_ITEMS', items: data})
             }
         }
     )}
 }
 
-export default getItems;
+export default getItemsByCategory;

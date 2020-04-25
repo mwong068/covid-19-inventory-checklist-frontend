@@ -2,7 +2,9 @@ const initialState = {
     currentUser: null,
     userId: 0,
     categories: [],
-    items: []
+    user_items: [],
+    items: [],
+    allUsers: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -22,9 +24,13 @@ const rootReducer = (state = initialState, action) => {
         case 'LOADED_CATEGORIES':
             return {...state, categories: action.categories, loading: false}
         case 'ITEM_ADDED':
-            return {...state, items: action.items, loading: false}
+            return {...state, user_items: action.items, loading: false}
+        case 'LOADED_USER_ITEMS':
+            return {...state, user_items: action.items, loading: false}
         case 'LOADED_ITEMS':
             return {...state, items: action.items, loading: false}
+        case 'LOADED_ALL_USERS':
+            return {...state, allUsers: action.users, loading: false}
         default:
             return state;
     }

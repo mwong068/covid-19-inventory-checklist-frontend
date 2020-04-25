@@ -1,12 +1,12 @@
 import React from 'react';
-import ItemList from '../Items/ItemList';
+import { NavLink } from 'react-router-dom';
 
 class Category extends React.Component {
     
     render() {
         return (
             <div className="item">
-                <h1>{this.props.name}</h1>
+                <h1><NavLink to={`/categories/${this.props.id}`}>{this.props.name}</NavLink></h1>
                 <h3>{this.props.description}</h3>
             </div>
         )
