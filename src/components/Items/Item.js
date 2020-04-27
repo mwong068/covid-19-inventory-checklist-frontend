@@ -3,6 +3,12 @@ import { connect } from 'react-redux';
 
 class Item extends React.Component {
 
+getCategory = event => {
+    if (this.props.category_id) {
+        return this.props.categories.find((category) => category.id === this.props.category_id).name
+    }
+}
+
     render() {
         return(
             <div className="item">
@@ -10,7 +16,7 @@ class Item extends React.Component {
                 <h4>Description: {this.props.description}</h4>
                 <h4>Quantity: {this.props.quantity}</h4>
                 <h4>Availability: {this.props.availability}</h4>
-                <h4>Category: {this.props.categories.find((category) => category.id === this.props.category_id).name}</h4>
+                <h4>Category: {this.getCategory()}</h4>
             </div>
         )
     }
