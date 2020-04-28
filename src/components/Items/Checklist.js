@@ -2,14 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ItemList from './ItemList';
 import getCategories from '../../actions/Category/getCategories';
-import getItems from '../../actions/Item/getItems';
+// import getItems from '../../actions/Item/getItems';
 // import { faUserInjured } from '@fortawesome/free-solid-svg-icons';
 
 class Checklist extends React.Component {
 
     componentDidMount() {
         this.props.getCategories();
-        this.props.getItems(this.props.id)
+        // this.props.getItems(this.props.id)
+    }
+
+    getUser = event => {
+        if (Object.keys(this.props.users).length !== 0) {
+            let userItems = this.props.users.find((user) => user.id === this.props.id).helpful_items
+            console.log(userItems)
+            return <ItemList items={userItems} />
+
+        }
     }
 
     render() {
@@ -27,7 +36,7 @@ class Checklist extends React.Component {
             :
             <>
             <h1>Hi {this.props.user}, welcome to your inventory checklist!</h1>
-            <ItemList />
+            {this.getUser()}
             </>
             }
         </div>
@@ -40,14 +49,15 @@ const mapStateToProps = state => {
         user: state.currentUser,
         id: state.userId,
         loaded: state.loading,
-        categories: state.categories
+        // categories: state.categories
+        users: state.allUsers
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        getCategories: () => { dispatch(getCategories()) },
-        getItems: (id) => { dispatch(getItems(id)) }
+        getCategories: () => { dispatch(getCategories()) }
+        // getItems: (id) => { dispatch(getItems(id)) }
     }
 }
 

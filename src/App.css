@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+button {
+  color: #ed5892;
+  border: 1px solid #ed5892;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 15px;
+}
+
 /* navbar */
 .sidenav {
   height: 100%;
@@ -53,7 +61,7 @@
 /* items styling */
 .items-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto;
   grid-gap: 50px;
   width: 90%;
   margin: auto;
@@ -67,11 +75,36 @@
   height: 220px;
 }
 
+/* category */
 .item {
-background-color: #96a0d0;
-border-radius: 20px;
-width: 270px;
-height: 220px;
+background-color: white;
+border: 1px solid #f1f1f1;
+box-shadow: 1px 2px #9b9fce;
+border-radius: 5px;
+width: 400px;
+height: 200px;
+display: grid;
+grid-template-columns: 1.3fr 2fr;
+}
+
+
+.test-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* object-position: -50px 0px; */
+}
+
+/* inventory */
+.inventory-item {
+background-color: white;
+border: 1px solid #f1f1f1;
+box-shadow: 1px 2px #9b9fce;
+border-radius: 5px;
+width: 450px;
+height: 270px;
+display: grid;
+grid-template-columns: 1.3fr 2fr;
 }
 
 /* spinner */
@@ -112,25 +145,25 @@ height: 220px;
 /* profile page */
 .profile-page {
   display: grid;
-  grid-template-areas: 'left right right';
-  padding: 50px;
+  grid-template-columns: auto auto;
+  padding: 20px;
 }
 
 .profile-left{
   border: 1px solid #7F95D1;
   display: grid;
   grid-template-rows: auto auto;
-  grid-gap: 20px;
-  width: 80%;
+  /* grid-gap: 20px; */
+  width: 70%;
   padding: 20px;
   border-radius: 20px;
   background-color: #EFE9F4;
 }
 
 .profile-right{
-  border: 1px solid #7F95D1;
+  border: 1px solid #ed5892;
   border-radius: 20px;
-  width: 120%;
+  width: 90%;
 }
 
 .profile-header{

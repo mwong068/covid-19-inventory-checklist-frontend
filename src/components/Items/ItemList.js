@@ -13,6 +13,7 @@ class ItemList extends React.Component {
         <div className="items-container">
             <AddItem />
             {this.props.items.map((item) => (<Item {...item} />))}
+            {/* {console.log(this.props.items)} */}
         </div>
         )
     }
@@ -20,7 +21,7 @@ class ItemList extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        items: state.user_items
+        // items: state.user_items
     }
 }
 
