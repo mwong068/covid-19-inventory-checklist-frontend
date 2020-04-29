@@ -54,6 +54,10 @@ class AddItem extends React.Component {
                             {this.props.categories.map((category) => (<option value={category.id}>{category.name}</option>))}
                         </select> 
                     </label>
+                    <label>Image URL: 
+                        <input type="text" className="image" onChange={this.handleChange}></input>
+                    </label>
+                    <br></br>
                     <br></br><br></br>
                     <input type="submit" name="Submit" className="submit-button" />
                 </form>

@@ -34,7 +34,7 @@ class AddCategory extends React.Component {
                     </label>
                     <br></br>
                     <label>Image URL: 
-                        <input type="text" className="desc" onChange={(event) => this.handleOnChange(event)}></input>
+                        <input type="text" className="image" onChange={(event) => this.handleOnChange(event)}></input>
                     </label>
                     <br></br>
                     <input type="submit" name="submit" className="submit-button"></input>

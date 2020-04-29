@@ -15,6 +15,9 @@ const checkUser = () => {
             if (data.message){
               console.log(data.message)
             }
+            else if(data.error){
+                console.log(data.error)
+            }
             else {
             dispatch({type: 'VERIFIED_USER', currentUser: data.user.username, userId: data.user.id})
             }

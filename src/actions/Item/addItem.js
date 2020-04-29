@@ -15,6 +15,7 @@ const addItem = (event, itemInfo, history, id) => {
             description: itemInfo.description,
             quantity: itemInfo.quantity,
             availability: itemInfo.availability,
+            image_url: itemInfo.image,
             helpful_user_id: id,
             category_id: itemInfo.category
             }

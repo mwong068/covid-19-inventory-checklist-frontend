@@ -14,7 +14,8 @@ const createCategory = (event, categoryInfo, history) => {
         body: JSON.stringify({
             category: {
             name: categoryInfo.name,
-            description: categoryInfo.desc
+            description: categoryInfo.desc,
+            image_url: categoryInfo.image
             }
         })
         })
