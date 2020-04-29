@@ -30,9 +30,9 @@ class AddItem extends React.Component {
 
     render() {
         return(
-            <div className="add-item">
-                <h3>Add New Item</h3>
+            <div className="add-inventory-item">
                 <form onSubmit={(event) => this.handleSubmit(event)}>
+                <h3>Add New Item</h3>
                     <label>Item name: 
                         <input type="text" className="name" onChange={this.handleChange}></input>
                     </label>
@@ -55,7 +55,7 @@ class AddItem extends React.Component {
                         </select> 
                     </label>
                     <br></br><br></br>
-                    <input type="submit" name="Submit" />
+                    <input type="submit" name="Submit" className="submit-button" />
                 </form>
             </div>
         )

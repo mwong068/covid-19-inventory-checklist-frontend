@@ -7,9 +7,8 @@ class CategoryList extends React.Component {
     
     render() {
         return (
-            <div className="items-container">
+            <div className="category-container">
                 {this.props.categories.map(category => (<Category {...category} />))}
-                
                 <AddCategory />
             </div>
         )

@@ -11,9 +11,8 @@ class ItemList extends React.Component {
     render() {
     return (
         <div className="items-container">
-            <AddItem />
             {this.props.items.map((item) => (<Item {...item} />))}
-            {/* {console.log(this.props.items)} */}
+            <AddItem />
         </div>
         )
     }

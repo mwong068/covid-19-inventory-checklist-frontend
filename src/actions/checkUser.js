@@ -12,8 +12,8 @@ const checkUser = () => {
         })
         .then(r => r.json())
         .then(data => {
-            if (data.error){
-              console.log(data.error)
+            if (data.message){
+              console.log(data.message)
             }
             else {
             dispatch({type: 'VERIFIED_USER', currentUser: data.user.username, userId: data.user.id})

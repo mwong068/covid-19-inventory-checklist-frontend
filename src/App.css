@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
 .App {
   text-align: center;
+  font-family: 'Manrope', sans-serif;
 }
 
 button {
@@ -19,6 +22,7 @@ button {
   top: 0;
   left: 0;
   background-color: #13a7e0;
+  /* background-color: #3ca186; */
 ;
   overflow-x: hidden;
   padding-top: 20px;
@@ -58,8 +62,44 @@ button {
 }
 
 
-/* items styling */
+/* inventory styling */
 .items-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 50px;
+  width: 95%;
+  margin: auto;
+  padding: 10px;
+}
+
+.add-inventory-item {
+  background-color: #ed5892;
+  border-radius: 5px;
+  width: 320px;
+  height: 290px;
+  color: white;
+  line-height: 30px;
+}
+
+.inventory-item {
+  background-color: white;
+  border: 1px solid #f1f1f1;
+  box-shadow: 1px 2px #9b9fce;
+  border-radius: 5px;
+  width: 470px;
+  height: 290px;
+  display: grid;
+  grid-template-columns: 1.3fr 2fr;
+  }
+
+  .submit-button {
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 12px;
+  }
+
+/* category styling */
+.category-container {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 50px;
@@ -68,14 +108,15 @@ button {
   padding: 10px;
 }
 
-.add-item {
-  background-color: #c76c92;
-  border-radius: 20px;
-  width: 270px;
-  height: 220px;
+.add-category-item {
+  background-color: #ed5892;
+  border-radius: 5px;
+  width: 400px;
+  height: 200px;
+  color: white;
+  line-height: 30px;
 }
 
-/* category */
 .item {
 background-color: white;
 border: 1px solid #f1f1f1;
@@ -85,8 +126,12 @@ width: 400px;
 height: 200px;
 display: grid;
 grid-template-columns: 1.3fr 2fr;
+grid-gap: 10px;
 }
 
+.text {
+  width: 95%;
+}
 
 .test-image {
   width: 100%;
@@ -95,17 +140,29 @@ grid-template-columns: 1.3fr 2fr;
   /* object-position: -50px 0px; */
 }
 
-/* inventory */
-.inventory-item {
-background-color: white;
-border: 1px solid #f1f1f1;
-box-shadow: 1px 2px #9b9fce;
-border-radius: 5px;
-width: 450px;
-height: 270px;
-display: grid;
-grid-template-columns: 1.3fr 2fr;
+/* item view page styling */
+.item-page {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 20px;
+  /* margin: auto; */
+  /* grid-gap: 30px; */
 }
+
+.item-image {
+  width: 400px;
+  height: 400px;
+}
+
+.item-info {
+  border: 1px solid #f1f1f1;
+  box-shadow: 1px 2px grey;
+  border-radius: 5px;
+  padding: 30px;
+  width: 130%;
+
+}
+
 
 /* spinner */
 .loader {
@@ -130,16 +187,48 @@ grid-template-columns: 1.3fr 2fr;
     'header header header header header header' 
     'left left middle middle right right' 
     'footer footer footer footer footer footer';
+  background-image: url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80');
+  box-shadow: inset 0 0 0 1000px rgba(19,167,224,.5);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: auto;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 1024px;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  .homepage {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+.homepage-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 45%;
+}
+
+.homepage-buttons button {
+  padding: 10px 25px;
+  font-size: 20px;
 }
 
 .header {
   grid-area: header;
-  height: 150px;
+  height: 70px;
 }
 
 .welcome {
   grid-area: middle;
   line-height: 70px;
+  text-align: left;
 }
 
 /* profile page */
@@ -150,24 +239,38 @@ grid-template-columns: 1.3fr 2fr;
 }
 
 .profile-left{
-  border: 1px solid #7F95D1;
+  /* background-color: #ed5892; */
+  border: 1px solid #ed5892;
+  box-shadow: 1px 2px #EFE9F4;
+  /* color: white; */
   display: grid;
   grid-template-rows: auto auto;
   /* grid-gap: 20px; */
-  width: 70%;
+  width: 80%;
   padding: 20px;
   border-radius: 20px;
-  background-color: #EFE9F4;
 }
 
 .profile-right{
-  border: 1px solid #ed5892;
+  border: 1px solid #f1f1f1;
+  box-shadow: 1px 2px #EFE9F4;
   border-radius: 20px;
-  width: 90%;
+  padding: 0px 20px;
+  width: 80%;
 }
 
-.profile-header{
-  border: 2px solid #7F95D1;
-  background-color: white;
-  border-radius: 20px;
+.profile-right div {
+  margin: auto;
 }
+
+.profile-photo {
+  width: 250px;
+  height: 250px;
+  margin: auto;
+}
+
+/* .profile-header{
+  border: 1px solid #ed5892;
+  background-color: #ed5892;
+  border-radius: 20px;
+} */

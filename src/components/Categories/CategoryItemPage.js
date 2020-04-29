@@ -9,11 +9,18 @@ class CategoryItemPage extends React.Component {
         let item = (this.props.items.find(item => (item.id === id)))
         return (
         <>
-        <h1>{item.name}</h1>
-        <h2>Description: {item.description}</h2>
-        <h2>Quantity: {item.quantity}</h2>
-        <h2>Availability: {item.availability}</h2>
-        <h2>Reach out to <NavLink to={`/users/${item.helpful_user_id}`}>{this.findUser(`${item.helpful_user_id}`)}</NavLink> to get this item</h2>
+        <div className="item-page">
+            <div className="item-image">
+                <img src={"https://images.unsplash.com/photo-1520981825232-ece5fae45120?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"} alt="test" className="test-image" />
+            </div>
+            <div className="item-info">
+                <h1>{item.name}</h1>
+                <h2>Description: {item.description}</h2>
+                <h2>Quantity: {item.quantity}</h2>
+                <h2>Availability: {item.availability}</h2>
+                <h2>Reach out to <NavLink to={`/users/${item.helpful_user_id}`}>{this.findUser(`${item.helpful_user_id}`)}</NavLink> to get this item</h2>
+            </div>
+        </div>
         </>)
         // use serializer to get info about helpful user to display on page
     }
