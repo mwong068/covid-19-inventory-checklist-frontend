@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import LoginUser from '../actions/LoginUser';
+import getAllUsers from '../actions/getAllUsers';
 
 class Login extends React.Component{
 
@@ -23,10 +24,18 @@ class Login extends React.Component{
         this.props.loginUser(event, userInfo, history);
     }
 
+    componentDidMount() {
+        this.props.getAllUsers();
+    }
+
     render() {
         return (
             <div>
+                <div className="login">
+                <div className="login-form-text">
                 <h1>Login</h1>
+                </div>
+                <div className="login-form">
                 <form onSubmit={(event) => this.handleSubmit(event, this.state, this.props.history)}>
                     <label>Username:
                         <br></br>
@@ -38,8 +47,10 @@ class Login extends React.Component{
                     <input type="password" className="password" onChange={(event) => this.handleOnChange(event)} />
                     </label>
                     <br></br><br></br>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Submit" className="submit" />
                 </form>
+                </div>
+                </div>
             </div>
         )
     }
@@ -47,7 +58,8 @@ class Login extends React.Component{
 
 const mapDispatchToProps = dispatch => {
     return {
-        loginUser: (event, userInfo, history) => { dispatch(LoginUser(event, userInfo, history)) }
+        loginUser: (event, userInfo, history) => { dispatch(LoginUser(event, userInfo, history)) },
+        getAllUsers: () => { dispatch(getAllUsers()) }
     }
 }
 

@@ -65,11 +65,11 @@ button {
 /* inventory styling */
 .items-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
   grid-gap: 50px;
   width: 95%;
   margin: auto;
-  padding: 10px;
+  padding: 10px 100px;
 }
 
 .add-inventory-item {
@@ -231,6 +231,69 @@ grid-gap: 10px;
   text-align: left;
 }
 
+/* sign up page */
+.sign-up {
+  display: grid;
+  grid-template-columns: 1.3fr 1.2fr;
+  padding: 50px;
+  width: 70%;
+  margin: auto;
+}
+
+.form {
+  margin: auto;
+  padding: 50px;
+  width: 80%;
+  border: 1px solid #f1f1f1;
+  border-radius: 10px;
+}
+
+.form-text{
+  padding: 225px 0px;
+  width: 100%;
+  color: white;
+  border: 1px solid #13a7e0;
+  background-color: #13a7e0;
+  border-radius: 10px;
+  box-shadow: 2px 4px #f1f1f1;
+}
+
+.submit {
+  padding: 7px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  border: 1px solid #ed5892;
+  background-color: #ed5892;
+  color: white;
+}
+
+
+/* login page */
+.login {
+  display: grid;
+  grid-template-columns: 1.2fr 1.3fr;
+  padding: 100px;
+  width: 70%;
+  margin: auto;
+}
+
+.login-form {
+  margin: auto;
+  width: 80%;
+  padding: 20px;
+  border: 1px solid #f1f1f1;
+  box-shadow: 2px 4px #f1f1f1;
+  border-radius: 10px;
+}
+
+.login-form-text{
+  padding: 50px 0px;
+  width: 99%;
+  color: white;
+  background-color: #13a7e0;
+  border-radius: 10px;
+}
+
 /* profile page */
 .profile-page {
   display: grid;
@@ -267,6 +330,25 @@ grid-gap: 10px;
   width: 250px;
   height: 250px;
   margin: auto;
+}
+
+.profile-form-text{
+  padding: 225px 0px;
+  width: 95%;
+  color: white;
+  border: 1px solid #13a7e0;
+  background-color: #13a7e0;
+  border-radius: 10px;
+  box-shadow: 2px 4px #f1f1f1;
+}
+
+.profile-form {
+  margin: auto;
+  width: 90%;
+  padding: 40px;
+  border: 1px solid #f1f1f1;
+  box-shadow: 2px 4px #f1f1f1;
+  border-radius: 10px;
 }
 
 /* .profile-header{

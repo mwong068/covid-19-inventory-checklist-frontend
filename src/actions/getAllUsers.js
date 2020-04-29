@@ -1,5 +1,4 @@
 const getAllUsers = (id) => {
-    console.log(id)
     return (dispatch) => {
         dispatch({type: 'LOADING'})
         const token = localStorage.token;

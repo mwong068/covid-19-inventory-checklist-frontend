@@ -10,16 +10,18 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import checkUser from '../actions/checkUser';
 import getAllUsers from '../actions/getAllUsers';
+import getCategories from '../actions/Category/getCategories';
 import Profile from './Profile';
 import UserPage from './UserPage';
-import getItemsByCategory from './Categories/getItemsByCategory';
+import getItemsByCategory from '../actions/Category/getItemsByCategory';
 
 class Main extends React.Component {
 
     componentDidMount() {
         this.props.checkUser();
-        this.props.getItems();
+        // this.props.getItems();
         this.props.getAllUsers();
+        // this.props.getCategories();
     }
 
     render() {
@@ -54,8 +56,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         checkUser: () => { dispatch(checkUser()) },
-        getItems: () => { dispatch(getItemsByCategory()) },
+        // getItems: () => { dispatch(getItemsByCategory()) },
         getAllUsers: () => { dispatch(getAllUsers()) }
+        // getCategories: () => { dispatch(getCategories()) }
     }
 }
 

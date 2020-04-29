@@ -4,8 +4,13 @@ import { connect } from 'react-redux';
 class Item extends React.Component {
 
 getCategory = event => {
-    if (this.props.category_id) {
-        return this.props.categories.find((category) => category.id === this.props.category_id).name
+    if (Object.keys(this.props).length !== 0) {
+        if(this.props.category_id){
+            return this.props.categories.find((category) => category.id === this.props.category_id).name
+        }
+        else{
+            return this.props.categories.find((category) => category.id === this.props.category.id).name
+        }
     }
 }
 

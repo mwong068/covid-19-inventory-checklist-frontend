@@ -8,7 +8,7 @@ class AddItem extends React.Component {
     constructor() {
         super();
         this.state = {
-
+            category: 1
         }
     }
 

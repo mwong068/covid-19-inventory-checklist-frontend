@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import createUser from '../actions/createUser';
+import getAllUsers from '../actions/getAllUsers';
+
 
 class Signup extends React.Component{
 
@@ -34,11 +36,16 @@ class Signup extends React.Component{
         
     }
 
+    componentDidMount() {
+        this.props.getAllUsers();
+    }
+
 
     render() {
         return (
             <div>
-                <h1>Sign Up</h1>
+            <div className="sign-up">
+                <div className="form">
                 <form onSubmit={(event) => this.handleSubmit(event)} >
                     <label>Name:
                         <br></br>
@@ -95,8 +102,13 @@ class Signup extends React.Component{
                             onChange={this.handleCheckboxTwo} />
                     </label>
                     <br></br><br></br>
-                    <input type="submit" className="Submit" />
+                    <input type="submit" className="submit" />
                 </form>
+                </div>
+                <div className="form-text">
+                    <h1>Sign Up</h1>
+                </div>
+            </div>
             </div>
         )
     }
@@ -104,7 +116,8 @@ class Signup extends React.Component{
 
 const mapDispatchToProps = dispatch => {
     return{
-        signUp: (event, userInfo, history) => { dispatch(createUser(event, userInfo, history)) }
+        signUp: (event, userInfo, history) => { dispatch(createUser(event, userInfo, history)) },
+        getAllUsers: () => { dispatch(getAllUsers()) }
     }
 }
 

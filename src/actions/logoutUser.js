@@ -3,6 +3,7 @@ const logoutUser = (history) => {
         dispatch({type: 'LOGOUT_USER'})
         localStorage.removeItem('token')
         history.push('/')
+        window.location.reload();
     }
 }
 

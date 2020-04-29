@@ -1,23 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ItemList from './ItemList';
+import getItemsByCategory from '../../actions/Category/getItemsByCategory';
+import getAllUsers from '../../actions/getAllUsers';
 import getCategories from '../../actions/Category/getCategories';
-// import getItems from '../../actions/Item/getItems';
-// import { faUserInjured } from '@fortawesome/free-solid-svg-icons';
 
 class Checklist extends React.Component {
 
     componentDidMount() {
+        this.props.getItems();
         this.props.getCategories();
-        // this.props.getItems(this.props.id)
     }
 
     getUser = event => {
         if (Object.keys(this.props.users).length !== 0) {
             let userItems = this.props.users.find((user) => user.id === this.props.id).helpful_items
-            console.log(userItems)
+            if ((this.props.items).length !== 0){
+                if((userItems.find(item => item.id === this.props.items[0].item.id)) === undefined){
+                    userItems.push(this.props.items[0].item)
+                }
+            }
             return <ItemList items={userItems} />
-
         }
     }
 
@@ -49,15 +52,15 @@ const mapStateToProps = state => {
         user: state.currentUser,
         id: state.userId,
         loaded: state.loading,
-        // categories: state.categories
-        users: state.allUsers
+        users: state.allUsers,
+        items: state.user_items
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
+        getItems: () => { dispatch(getItemsByCategory()) },
         getCategories: () => { dispatch(getCategories()) }
-        // getItems: (id) => { dispatch(getItems(id)) }
     }
 }
 

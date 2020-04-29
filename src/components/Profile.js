@@ -36,8 +36,12 @@ class Profile extends React.Component {
     render(){
         return(
             <div>
-                <h1>Hi there, {this.props.name}!</h1>
-                <h4>Here you can edit you personal preferences:</h4>
+                <div className="sign-up">
+                <div className="profile-form-text">
+                    <h1>Hi there, {this.props.name}!</h1>
+                    <h4>Here you can edit you personal preferences:</h4>
+                </div>
+                <div className="profile-form">
                 <form onSubmit={(event) => this.handleSubmit(event)} >
                     <label>Name:
                         <br></br>
@@ -94,8 +98,10 @@ class Profile extends React.Component {
                             onChange={this.handleCheckboxTwo} />
                     </label>
                     <br></br><br></br>
-                    <input type="submit" className="Save Changes" />
+                    <input type="submit" className="submit" />
                 </form>
+                </div>
+                </div>
             </div>
         )
     }
