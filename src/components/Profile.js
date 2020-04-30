@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 
 class Profile extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-
         }
     }
 
@@ -30,7 +29,7 @@ class Profile extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.signUp(event, this.state, this.props.history);
+        this.props.EditUser(event, this.state, this.props.history);
         
     }
 
@@ -39,39 +38,46 @@ class Profile extends React.Component {
             <div>
                 <div className="sign-up">
                 <div className="profile-form-text">
-                    <h1>Hi there, {this.props.name}!</h1>
+                    <h1>Hi there, {this.props.user !== null ? this.props.user.name : null}!</h1>
                     <h4>Here you can edit you personal preferences:</h4>
                 </div>
                 <div className="profile-form">
                 <form onSubmit={(event) => this.handleSubmit(event)} >
+                    {this.props.user !== null ?
+                    <>
                     <label>Name:
                         <br></br>
-                        <input type="text" className="name" onChange={this.handleChange} value={this.state.name}></input>
+                        <input type="text" className="name" onChange={this.handleChange} value={this.props.user.name}></input>
                     </label>
                     <br></br><br></br>
                     <label>Email:
                         <br></br>
-                        <input type="text" className="email" onChange={this.handleChange}></input>
+                        <input type="text" className="email" onChange={this.handleChange} value={this.props.user.email}></input>
+                    </label>
+                    <br></br><br></br>
+                    <label>Phone Number:
+                        <br></br>
+                        <input type="text" className="phone" onChange={this.handleChange} value={this.props.user.phone_number}></input>
                     </label>
                     <br></br><br></br>
                     <label>Username:
                         <br></br>
-                        <input type="text" className="username" onChange={this.handleChange}></input>
+                        <input type="text" className="username" onChange={this.handleChange} value={this.props.user.username}></input>
                     </label>
                     <br></br><br></br>
                     <label>Password:
                         <br></br>
-                        <input type="password" className="password" onChange={this.handleChange}></input>
+                        <input type="password" className="password" onChange={this.handleChange} value="***********"></input>
                     </label>
                     <br></br><br></br>
                     <label>Location:
                         <br></br>
-                        <input type="text" className="location" onChange={this.handleChange}></input>
+                        <input type="text" className="location" onChange={this.handleChange} value={this.props.user.location}></input>
                     </label>
                     <br></br><br></br>
                     <label>Family Size:
                         <br></br>
-                        <select className="familySize" value={this.state.value} onChange={this.handleChange}>
+                        <select className="familySize" value={this.state.familySize} onChange={this.handleChange}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -100,6 +106,7 @@ class Profile extends React.Component {
                     </label>
                     <br></br><br></br>
                     <input type="submit" className="submit" />
+                    </>: null }
                 </form>
                 </div>
                 </div>
@@ -110,8 +117,7 @@ class Profile extends React.Component {
 
 const mapStateToProps = state => {
     return {
-            categories: state.categories,
-            items: state.items
+            user: state.currentUser
     }
 }
 

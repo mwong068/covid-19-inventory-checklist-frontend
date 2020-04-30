@@ -2,8 +2,14 @@ import React from 'react';
 import Category from './Category';
 import AddCategory from './AddCategory';
 import { connect } from 'react-redux';
+import getItemsByCategory from '../../actions/Category/getItemsByCategory';
 
 class CategoryList extends React.Component {
+
+    componentDidMount() {
+       
+
+    }
     
     render() {
         return (
@@ -21,4 +27,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(CategoryList);
+const mapDispatchToProps = dispatch => {
+    return {
+        getItems: () => { dispatch(getItemsByCategory()) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryList);

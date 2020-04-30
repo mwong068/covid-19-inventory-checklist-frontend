@@ -78,9 +78,14 @@ class Signup extends React.Component{
                         <input type="text" className="location" onChange={this.handleChange}></input>
                     </label>
                     <br></br><br></br>
+                    <label>User Image URL:
+                        <br></br>
+                        <input type="text" className="image" onChange={this.handleChange}></input>
+                    </label>
+                    <br></br><br></br>
                     <label>Family Size:
                         <br></br>
-                        <select className="familySize" value={this.state.value} onChange={this.handleChange}>
+                        <select className="familySize" value={this.state.familySize} onChange={this.handleChange}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

@@ -1,4 +1,5 @@
 const addItem = (event, itemInfo, history, id) => {
+    console.log(id)
     return (dispatch) => {
         dispatch({type: 'LOADING'})
         const token = localStorage.token

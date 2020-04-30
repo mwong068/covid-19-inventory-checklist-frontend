@@ -24,7 +24,7 @@ class AddItem extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const { history } = this.props;
-        this.props.addItem(event, this.state, history, this.props.user);
+        this.props.addItem(event, this.state, history, this.props.user.id);
         
     }
 
@@ -68,7 +68,7 @@ class AddItem extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.userId,
+        user: state.currentUser,
         categories: state.categories
     }
 }

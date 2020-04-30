@@ -17,8 +17,8 @@ getCategory = event => {
     render() {
         return(
             <div className="inventory-item">
-                <div className="image">
-                    <img src={this.props.image_url} alt={this.props.name} className="test-image" />
+                <div className="inventory-image">
+                    <img src={this.props.image_url} alt={this.props.name} className="inventory-item-image" />
                 </div>
                 <div className="text">
                     <h3>Item name: {this.props.name}</h3>

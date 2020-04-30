@@ -12,7 +12,7 @@ class Category extends React.Component {
     render() {
         return (
             <div className="item">
-                <div className="image">
+                <div className="inventory-image">
                     <img src={this.props.image_url} alt={this.props.name} className="test-image" />
                 </div>
                 <div className="text">

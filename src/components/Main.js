@@ -19,7 +19,7 @@ class Main extends React.Component {
 
     componentDidMount() {
         this.props.checkUser();
-        // this.props.getItems();
+        this.props.getItems();
         this.props.getAllUsers();
         // this.props.getCategories();
     }
@@ -33,7 +33,7 @@ class Main extends React.Component {
                 <Route exact path="/categories/:id" render={(props) => <CategoryItemList {...props} />} />
                 <Route exact path="/items/:id" render={(props) => <CategoryItemPage {...props} />} />
                 <Route exact path="/users/:id" render={(props) => <UserPage {...props} />} />
-                <Route exact path="/profile" render={(props) => <Profile{...props} name={this.props.currentUser} />} />
+                <Route exact path="/profile" render={(props) => <Profile{...props} />} />
                 {this.props.current_user ? null :
                 <>
                 <Route exact path="/login" render={(props) => <Login {...props} />} />
@@ -56,7 +56,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         checkUser: () => { dispatch(checkUser()) },
-        // getItems: () => { dispatch(getItemsByCategory()) },
+        getItems: () => { dispatch(getItemsByCategory()) },
         getAllUsers: () => { dispatch(getAllUsers()) }
         // getCategories: () => { dispatch(getCategories()) }
     }

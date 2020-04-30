@@ -86,7 +86,7 @@ button {
   border: 1px solid #f1f1f1;
   box-shadow: 1px 2px #9b9fce;
   border-radius: 5px;
-  width: 470px;
+  width: 530px;
   height: 290px;
   display: grid;
   grid-template-columns: 1.3fr 2fr;
@@ -133,12 +133,46 @@ grid-gap: 10px;
   width: 95%;
 }
 
+.inventory-image {
+  height: 201px;
+}
+
+.inventory-item-image {
+  width: 100%;
+  height: 291px;
+}
+
 .test-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   /* object-position: -50px 0px; */
 }
+
+/* category list item styling */
+.category-item {
+  background-color: white;
+  border: 1px solid #f1f1f1;
+  box-shadow: 1px 2px #9b9fce;
+  border-radius: 5px;
+  width: 400px;
+  height: 230px;
+  display: grid;
+  grid-template-columns: 1.3fr 2fr;
+  grid-gap: 10px;
+  }
+
+.category-image {
+  width: 100%;
+  height: 231px;
+  object-fit: cover;
+  /* object-position: -50px 0px; */
+}
+
+.category-text {
+  width: 95%;
+}
+
 
 /* item view page styling */
 .item-page {
@@ -298,12 +332,12 @@ grid-gap: 10px;
 .profile-page {
   display: grid;
   grid-template-columns: auto auto;
-  padding: 20px;
+  padding: 20px 60px;
 }
 
 .profile-left{
   /* background-color: #ed5892; */
-  border: 1px solid #ed5892;
+  border: 1px solid #f1f1f1;
   box-shadow: 1px 2px #EFE9F4;
   /* color: white; */
   display: grid;
@@ -320,16 +354,21 @@ grid-gap: 10px;
   border-radius: 20px;
   padding: 0px 20px;
   width: 80%;
+  background-color: #13a7e0;
+  color: white;
 }
 
 .profile-right div {
   margin: auto;
+  color: black;
 }
 
 .profile-photo {
-  width: 250px;
-  height: 250px;
+  width: 175px;
+  height: 175px;
   margin: auto;
+  object-fit: cover;
+  border-radius: 150px;
 }
 
 .profile-form-text{
@@ -356,3 +395,25 @@ grid-gap: 10px;
   background-color: #ed5892;
   border-radius: 20px;
 } */
+
+.user-item-image {
+  width: 100%;
+  height: 201px;
+  object-fit: cover;
+}
+
+.sms-button {
+  padding: 10px;
+  text-overflow: auto;
+  width: 200px;
+  margin: auto;
+  background-color: #ed5892;
+  color: white;
+  font-size: 18px;
+  box-shadow: 2px 4px #f1f1f1;
+}
+
+.break {
+  border: 1px solid #f1f1f1;
+  width: 300px;
+}

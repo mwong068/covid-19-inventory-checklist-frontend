@@ -11,7 +11,7 @@ class CategoryItemPage extends React.Component {
         <>
         <div className="item-page">
             <div className="item-image">
-                <img src={"https://images.unsplash.com/photo-1520981825232-ece5fae45120?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"} alt="test" className="test-image" />
+                <img src={item.image_url} alt={item.name}className="test-image" />
             </div>
             <div className="item-info">
                 <h1>{item.name}</h1>

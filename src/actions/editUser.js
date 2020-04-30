@@ -1,9 +1,11 @@
-const createCategory = (event, categoryInfo, history) => {
+const editUser = (event, categoryInfo, history) => {
+    console.log(history)
+    console.log(categoryInfo)
     return (dispatch) => {
         dispatch({type: 'LOADING'})
         const token = localStorage.token
         return fetch('http://localhost:3000/categories', {
-        method: 'POST',
+        method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json',
@@ -11,9 +13,10 @@ const createCategory = (event, categoryInfo, history) => {
         },
         body: JSON.stringify({
             category: {
-            name: categoryInfo.name,
-            description: categoryInfo.desc,
-            image_url: categoryInfo.image
+            id: categoryInfo.id
+            // name: categoryInfo.name,
+            // description: categoryInfo.desc,
+            // image_url: categoryInfo.image
             }
         })
         })
@@ -25,10 +28,10 @@ const createCategory = (event, categoryInfo, history) => {
             else{
                 console.log(data)
                 // history.push('/checklist')
-                dispatch({type: 'CATEGORY_CREATED', categories: data})
+                // dispatch({type: 'DELETE_CATEGORY', categories: data})
             }
         })
     }
 }
 
-export default createCategory;
+export default editUser;

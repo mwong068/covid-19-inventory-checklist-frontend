@@ -1,6 +1,4 @@
 const LoginUser = (event, userInfo, history) => {
-    console.log(history)
-    console.log(userInfo)
     return (dispatch) => {
         dispatch({type: 'LOADING'})
         return fetch('http://localhost:3000/login', {
@@ -18,13 +16,17 @@ const LoginUser = (event, userInfo, history) => {
             })
             .then(r => r.json())
             .then(data => {
-                if (data.message) {
+                if (data.error) {
+                    window.alert(data.error)
+                }
+                else if(data.message) {
                     window.alert(data.message)
                 }
                 else {
                 localStorage.setItem('token', data.jwt);
+                console.log(data)
                 history.push('/checklist')
-                dispatch({type: 'LOGGED_IN', currentUser: data.user.username, userId: data.user.id})
+                dispatch({type: 'LOGGED_IN', currentUser: data.user})
                 }
             }
             )

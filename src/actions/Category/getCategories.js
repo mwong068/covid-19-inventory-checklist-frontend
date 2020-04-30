@@ -16,7 +16,7 @@ const getCategories = () => {
                 console.log(data.message)  
             }
             else {
-                console.log(data)
+                // console.log(data)
             dispatch({type: 'LOADED_CATEGORIES', categories: data})
             }
         }

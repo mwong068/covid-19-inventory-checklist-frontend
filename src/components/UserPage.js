@@ -14,25 +14,27 @@ class UserPage extends React.Component {
         <h1>{user.username}'s Profile</h1>
         <div className="profile-page">
             <div className="profile-left">
-                <img src={"https://images.unsplash.com/photo-1520981825232-ece5fae45120?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"} alt="test" className="profile-photo" />
-                <h3>{user.name}</h3>
+                <img src={user.image_url} alt={user.name} className="profile-photo" />
+                <h2>{user.name}</h2>
                 <h3>Location: {user.location}</h3>
                 <h3>Email: {user.email}</h3>
-                <button onClick={(event) => this.props.sendText(event, this.props.id, this.props.user)}>Click here to alert this person to your interest in their product</button>
-            {/* <h2>Reach out to <NavLink to={`/users/${item.helpful_user_id}`}>{this.findUser(`${item.helpful_user_id}`)}</NavLink> to get this item</h2> */}
+                <hr className="break"></hr>
+                <h3>Interested in a product from {user.name}?</h3>
+                <button onClick={(event) => this.props.sendText(event, user.id, this.props.user.name)} className="sms-button">Click here to alert them of your interest</button>
+                <br></br>
             </div>
             <div className="profile-right">
-                    <h1>Items being offered by this user</h1>
+                    <h2>Items being offered by this user</h2>
                     <hr></hr>
                     <br></br>
                         {user.helpful_items.map(item => (
                         <>
                         <div className="item">
                             <div className="image">
-                                <img src={"https://images.unsplash.com/photo-1520981825232-ece5fae45120?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"} alt="test" className="test-image" />
+                                <img src={item.image_url} alt="test" className="user-item-image" />
                             </div>
-                            <div className="text">
-                                <NavLink to={`/items/${item.id}`}>{item.name}</NavLink>
+                            <div className="user-item-text">
+                                <h3><NavLink to={`/items/${item.id}`}>{item.name}</NavLink></h3>
                                 <h4>{item.description}</h4>
                                 <h4>Quantity: {item.quantity}</h4>
                                 <h4>Availability: {item.availability}</h4>
@@ -59,8 +61,7 @@ const mapStateToProps = state => {
     return {
            items: state.items,
            users: state.allUsers,
-           user: state.currentUser,
-           id: state.userId
+           user: state.currentUser
     }
 }
 

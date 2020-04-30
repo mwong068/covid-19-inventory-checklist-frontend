@@ -1,6 +1,4 @@
 const createUser = (event, userInfo, history) => {
-    console.log(history)
-    console.log(userInfo)
     console.log('submitting sign up!')
     return (dispatch) => {
         dispatch({type: 'LOADING'})
@@ -18,6 +16,7 @@ const createUser = (event, userInfo, history) => {
             email: userInfo.email,
             location: userInfo.location,
             phone_number: userInfo.phone,
+            image_url: userInfo.image,
             family_size: userInfo.familySize,
             can_deliver: userInfo.canDeliver,
             has_children: userInfo.haveChildren
@@ -32,7 +31,7 @@ const createUser = (event, userInfo, history) => {
             else{
             localStorage.setItem('token', data.jwt);
             history.push('/checklist')
-            dispatch({type: 'SIGNED_UP', currentUser: data.user.username, userId: data.user.id})
+            dispatch({type: 'SIGNED_UP', currentUser: data.user})
             }
         })
     }
