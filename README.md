@@ -1,68 +1,95 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# COVID-19 Inventory Checklist (Front End)
 
-## Available Scripts
+![GitHub repo size](https://img.shields.io/github/repo-size/mwong068/covid-19-inventory-checklist-frontend)
+![GitHub stars](https://img.shields.io/github/stars/mwong068/covid-19-inventory-checklist-frontend)
+![GitHub forks](https://img.shields.io/github/forks/mwong068/covid-19-inventory-checklist-frontend)
+![Twitter Follow](https://img.shields.io/twitter/follow/mwong068?style=social)
 
-In the project directory, you can run:
+## About
 
-### `yarn start`
+The COVID-19 Inventory Checklist app was created to help people all over the world maintain an inventory of their home items in a time when resources are more difficult to obtain. The app was designed to bring awareness to individuals with excessive amounts of items in hopes that they may donate their unused products to those in need. It was also made available so that individuals who may not have enough can use the app to see what's available in their area and reach out directly to those with excess.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This app was made as part of the Twilio and Dev.to hackathon.
+
+### How it works
+
+This application was built using React.js and Redux for this frontend portion. Please see the below sections on how to run the application on your local environment.
+Please ensure that you have downloaded the [backend portion](https://github.com/mwong068/covid-19-inventory-checklist-backend-) of this application, to ensure full functionality of the application as it was designed:
+
+<!--
+**TODO: UML Diagram**
+We can render UML diagrams using [Mermaid](https://mermaidjs.github.io/).
+**TODO: Describe how it works**
+-->
+
+## Features
+
+- User interface made using [React.js](https://reactjs.org/)
+- Single page application is made possible using [React Routers](https://www.npmjs.com/package/react-router)
+- Centralized state using [Redux](https://redux.js.org/)
+- Icons and design provided by [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/using-with/react)
+
+## How to use it
+
+1. Create a clone of this repo using [GitHub's repository cloning](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github) functionality
+2. Locate the folder in your system and follow the steps below to run the server
+
+## Set up
+
+### Requirements
+
+- [React.js](https://reactjs.org/)
+- [React Routers](https://www.npmjs.com/package/react-router)
+- [Redux](https://redux.js.org/)
+- [Redux-Thunk](https://github.com/reduxjs/redux-thunk)
+- [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/using-with/react)
+- A Twilio account - [sign up](https://www.twilio.com/try-twilio)
+
+### Local development
+
+After the above requirements have been met:
+
+1. Clone this repository and `cd` into it
+
+```bash
+git clone https://github.com/mwong068/covid-19-inventory-checklist-frontend.git
+cd covid-19-inventory-checklist-frontend
+```
+
+2. Install dependencies
+
+```bash
+yarn install
+```
+Ensure that you have also added all of the necessary packages as required above.
+
+4. Run the application
+
+```bash
+yarn start
+```
+
+5. Navigate to [http://localhost:3001](http://localhost:3001)
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Resources
 
-### `yarn build`
+- [GitHub's repository cloning](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github)
+- Images are all from [Unsplash](https://unsplash.com/s/photos/)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributing
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+This template is open source and welcomes contributions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `yarn eject`
+[MIT](http://www.opensource.org/licenses/mit-license.html)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Disclaimer
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+No warranty expressed or implied. Software is as is.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
