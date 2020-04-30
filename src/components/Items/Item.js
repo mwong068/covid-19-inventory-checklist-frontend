@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class Item extends React.Component {
 
 getCategory = event => {
-    if (Object.keys(this.props).length !== 0) {
+    if (Object.keys(this.props.categories).length !== 0) {
         if(this.props.category_id){
             return this.props.categories.find((category) => category.id === this.props.category_id).name
         }
@@ -18,7 +18,7 @@ getCategory = event => {
         return(
             <div className="inventory-item">
                 <div className="image">
-                    <img src={"https://images.unsplash.com/photo-1520981825232-ece5fae45120?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"} alt="test" className="test-image" />
+                    <img src={this.props.image_url} alt={this.props.name} className="test-image" />
                 </div>
                 <div className="text">
                     <h3>Item name: {this.props.name}</h3>

@@ -31,6 +31,8 @@ const rootReducer = (state = initialState, action) => {
             return {...state, items: action.items, loading: false}
         case 'LOADED_ALL_USERS':
             return {...state, allUsers: action.users, loading: false}
+        case 'DELETE_CATEGORY':
+            return {...state, categories: action.categories, loading: false}
         default:
             return state;
     }

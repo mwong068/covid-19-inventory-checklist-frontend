@@ -14,13 +14,17 @@ class Checklist extends React.Component {
 
     getUser = event => {
         if (Object.keys(this.props.users).length !== 0) {
-            let userItems = this.props.users.find((user) => user.id === this.props.id).helpful_items
-            if ((this.props.items).length !== 0){
-                if((userItems.find(item => item.id === this.props.items[0].item.id)) === undefined){
-                    userItems.push(this.props.items[0].item)
+            let currentUser = this.props.users.find((user) => user.id === this.props.id)
+            if (currentUser !== undefined){
+                let userItems = currentUser.helpful_items
+                if ((this.props.items).length !== 0){
+                    if((userItems.find(item => item.id === this.props.items[0].item.id)) === undefined){
+                        userItems.push(this.props.items[0].item)
+                    }
                 }
+                return <ItemList items={userItems} />
             }
-            return <ItemList items={userItems} />
+            return <ItemList />
         }
     }
 

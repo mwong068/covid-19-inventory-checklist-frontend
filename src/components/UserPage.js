@@ -7,8 +7,8 @@ class UserPage extends React.Component {
 
     userInfo = event => {
         let id = parseInt(this.props.match.params.id)
-        let user = (this.props.users.find(item => (item.id === id)))
-        console.log(user.helpful_items)
+        var user = (this.props.users.find(item => (item.id === id)))
+        console.log(user)
         return (
         <>
         <h1>{user.username}'s Profile</h1>
@@ -18,7 +18,7 @@ class UserPage extends React.Component {
                 <h3>{user.name}</h3>
                 <h3>Location: {user.location}</h3>
                 <h3>Email: {user.email}</h3>
-                <button onClick={this.sendText}>Click here to alert this person to your interest in their product</button>
+                <button onClick={(event) => this.props.sendText(event, this.props.id, this.props.user)}>Click here to alert this person to your interest in their product</button>
             {/* <h2>Reach out to <NavLink to={`/users/${item.helpful_user_id}`}>{this.findUser(`${item.helpful_user_id}`)}</NavLink> to get this item</h2> */}
             </div>
             <div className="profile-right">
@@ -46,10 +46,6 @@ class UserPage extends React.Component {
         </>)
     }
 
-    sendText = event => {
-        this.props.sendText();
-    }
-
     render() {
         return(
             <div>
@@ -62,13 +58,15 @@ class UserPage extends React.Component {
 const mapStateToProps = state => {
     return {
            items: state.items,
-           users: state.allUsers
+           users: state.allUsers,
+           user: state.currentUser,
+           id: state.userId
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return{
-        sendText: (event) => { dispatch(sendText(event)) }
+        sendText: (event, id, user) => { dispatch(sendText(event, id, user)) }
     }
 }
 

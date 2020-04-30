@@ -9,6 +9,7 @@ class Signup extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            phone: "+1"
         }
     }
 
@@ -55,6 +56,11 @@ class Signup extends React.Component{
                     <label>Email:
                         <br></br>
                         <input type="text" className="email" onChange={this.handleChange}></input>
+                    </label>
+                    <br></br><br></br>
+                    <label>Phone Number:
+                        <br></br>
+                        <input type="text" className="phone" onChange={this.handleChange} value={this.state.phone}></input>
                     </label>
                     <br></br><br></br>
                     <label>Username:

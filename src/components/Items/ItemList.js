@@ -11,7 +11,7 @@ class ItemList extends React.Component {
     render() {
     return (
         <div className="items-container">
-            {this.props.items.map((item) => (<Item {...item} />))}
+            {this.props.items !== undefined ? this.props.items.map((item) => (<Item {...item} />)) : null}
             <AddItem />
         </div>
         )

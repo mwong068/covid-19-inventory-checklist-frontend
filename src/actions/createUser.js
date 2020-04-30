@@ -17,6 +17,7 @@ const createUser = (event, userInfo, history) => {
             password: userInfo.password,
             email: userInfo.email,
             location: userInfo.location,
+            phone_number: userInfo.phone,
             family_size: userInfo.familySize,
             can_deliver: userInfo.canDeliver,
             has_children: userInfo.haveChildren

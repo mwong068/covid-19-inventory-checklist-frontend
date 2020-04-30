@@ -35,7 +35,7 @@ class CategoryItemList extends React.Component {
             <div>
                 <h1>{this.findCategoryName()}</h1>
                 <div className="category-container">
-                    {this.listItems()}
+                    {Object.keys(this.props.items).length !== 0 ? this.listItems() : null}
                 </div>
             </div>
         )

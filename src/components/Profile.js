@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class Profile extends React.Component {
 
@@ -45,7 +46,7 @@ class Profile extends React.Component {
                 <form onSubmit={(event) => this.handleSubmit(event)} >
                     <label>Name:
                         <br></br>
-                        <input type="text" className="name" onChange={this.handleChange}></input>
+                        <input type="text" className="name" onChange={this.handleChange} value={this.state.name}></input>
                     </label>
                     <br></br><br></br>
                     <label>Email:
@@ -107,4 +108,11 @@ class Profile extends React.Component {
     }
 }
 
-export default Profile;
+const mapStateToProps = state => {
+    return {
+            categories: state.categories,
+            items: state.items
+    }
+}
+
+export default connect(mapStateToProps, null)(Profile);
